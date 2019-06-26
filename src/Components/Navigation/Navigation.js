@@ -1,34 +1,20 @@
 import React from 'react';
-import './logo.css';
 
-
-const Navigation = ()=>{
-   return (
-       <nav style ={{display: 'flex', 
-                    justifyContent: 'flex-end',
-                    alignItems:"center",
-                    height: "22vh",
-                    width:"100%",
-                    backgroundColor:"rgb(228,228,228)",
-                    position:"relative"
-                    }}>
-            <div className="logo" style={{
-                backgroundColor:"white",
-                alignItem:"flex-start",
-                position:"absolute",
-                left:"20px",
-                }}>
-                <img src="" alt=""/>
-            </div>
-
-            <h1 className="log-out" style={{
-                margin:"20px"
-            }}>Log Out</h1>
-
-            
-       </nav>
-   );
+const Navigation = ({ onRouteChange, isSignedIn }) => {
+    if (isSignedIn) {
+      return (
+        <nav style={{display: 'flex', justifyContent: 'flex-end'}}>
+          <p onClick={() => onRouteChange('signout')} className='f3 link dim black underline pa3 pointer'>Sign Out</p>
+        </nav>
+      );
+    } else {
+      return (
+        <nav style={{display: 'flex', justifyContent: 'flex-end'}}>
+          <p onClick={() => onRouteChange('signin')} className='f3 link dim black underline pa3 pointer'>Sign In</p>
+          <p onClick={() => onRouteChange('register')} className='f3 link dim black underline pa3 pointer'>Register</p>
+        </nav>
+      );
+    }
 }
-
 
 export default Navigation;

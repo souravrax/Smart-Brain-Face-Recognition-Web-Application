@@ -1,19 +1,23 @@
 import React from 'react';
+import './ImageLinkForm.css';
 
-
-
-const Imagelinkform = (prop)=>{
-   return (
-       <div style={{
-            height:"70vh",
-            backgroundColor: "#08AEEA",
-            backgroundImage: "linear-gradient(104deg, #08AEEA 0%, #2AF598 100%)"
-
-       }}>
-
-       </div>
-   );
+const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
+  return (
+    <div>
+      <p className='f3'>
+        {'This Magic Brain will detect faces in your pictures. Git it a try.'}
+      </p>
+      <div className='center'>
+        <div className='form center pa4 br3 shadow-5'>
+          <input className='f4 pa2 w-70 center' type='tex' onChange={onInputChange}/>
+          <button
+            className='w-30 grow f4 link ph3 pv2 dib white bg-light-purple'
+            onClick={onButtonSubmit}
+          >Detect</button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-
-export default Imagelinkform;
+export default ImageLinkForm;
